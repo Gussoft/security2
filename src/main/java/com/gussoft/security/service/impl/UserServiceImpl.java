@@ -1,6 +1,6 @@
 package com.gussoft.security.service.impl;
 
-import com.gussoft.security.models.User;
+import com.gussoft.security.models.Users;
 import com.gussoft.security.repository.UserRepository;
 import com.gussoft.security.service.UserService;
 import java.util.List;
@@ -14,22 +14,22 @@ public class UserServiceImpl implements UserService {
     private UserRepository repository;
 
     @Override
-    public List<User> getAll() {
+    public List<Users> getAll() {
         return repository.findAll();
     }
 
     @Override
-    public User findById(Long id) {
+    public Users findById(Long id) {
         return repository.findById(id).orElse(null);
     }
 
     @Override
-    public User save(User obj) {
+    public Users save(Users obj) {
         return repository.save(obj);
     }
 
     @Override
-    public User update(User obj, Long id) {
+    public Users update(Users obj, Long id) {
         return repository.save(obj);
     }
 

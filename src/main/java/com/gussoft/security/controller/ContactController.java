@@ -16,7 +16,7 @@ public class ContactController {
     @Autowired
     private ContactService service;
 
-    @GetMapping(path ="/contact/", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/contact/", produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ResponseEntity<List<Contact>> findAll() {
         return ResponseEntity.ok(service.getAll());
     }

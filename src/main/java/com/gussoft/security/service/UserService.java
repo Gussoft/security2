@@ -1,17 +1,17 @@
 package com.gussoft.security.service;
 
-import com.gussoft.security.models.User;
+import com.gussoft.security.models.Users;
 import java.util.List;
 
 public interface UserService {
 
-    List<User> getAll();
+    List<Users> getAll();
 
-    User findById(Long id);
+    Users findById(Long id);
 
-    User save(User obj);
+    Users save(Users obj);
 
-    User update(User obj, Long id);
+    Users update(Users obj, Long id);
 
     void delete(Long id);
 
