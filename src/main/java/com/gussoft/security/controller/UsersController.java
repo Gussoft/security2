@@ -1,8 +1,8 @@
 package com.gussoft.security.controller;
 
-import com.gussoft.security.models.Contact;
+import com.gussoft.security.models.Users;
 import com.gussoft.security.models.dto.GenericResponse;
-import com.gussoft.security.service.ContactService;
+import com.gussoft.security.service.UserService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -11,27 +11,26 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/v1")
-public class ContactController {
+public class UsersController {
 
     @Autowired
-    private ContactService service;
+    private UserService service;
 
-    @CrossOrigin("*")
-    @GetMapping(path = "/contact/", produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody ResponseEntity<List<Contact>> findAll() {
+    @GetMapping(path = "/users/", produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody ResponseEntity<List<Users>> findAll() {
         return ResponseEntity.ok(service.getAll());
     }
 
     @CrossOrigin(origins = "*")
-    @PostMapping(path = "/contact/", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/users/", produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody
-    ResponseEntity<Contact> create(
-            @RequestBody Contact request) {
+    ResponseEntity<Users> create(
+            @RequestBody Users request) {
         return ResponseEntity.ok(service.save(request));
     }
 
     @CrossOrigin(origins = "*")
-    @DeleteMapping(path = "/contact/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(path = "/users/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody
     ResponseEntity<GenericResponse> delete(
             @PathVariable("id") long id) {

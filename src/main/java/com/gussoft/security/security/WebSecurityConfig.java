@@ -28,8 +28,12 @@ public class WebSecurityConfig {
         jwtAuthenticationFilter.setFilterProcessesUrl("/login");
 
         return http
+                .cors()
+                .and()
                 .csrf().disable()
                 .authorizeRequests()
+//                .antMatchers("/v1/contact/**")
+//                .permitAll()
                 .anyRequest()
                 .authenticated()
 //                .and()
@@ -55,7 +59,7 @@ public class WebSecurityConfig {
     }*/
 
     @Bean
-    PasswordEncoder passwordEncoder() {
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
